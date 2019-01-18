@@ -1,0 +1,15 @@
+This flight predictor will have the following main components
+
+DataInput (APRSupload.py)
+		This will take raw csv files, process them, and add them to the Database. It will only be used after a flight that has not been otherwise included in the dataset.
+Database (DescentPredictor.db)
+		This will hold all the data that has been cleaned so far.
+Data interpreter (TimeSeries.py, DescentPredictor.py)
+		This will read in data from the database and organize it for use by the statistical model.
+Statistical Model (DescentPredictor.py, FlightModel.stan)
+		This will build and run the statistical model, and return a set of probable values for use by the predictive model.
+Predictive model (DescentPredictor.py)
+		This will take elements from the statistical model and use it to create a flight prediction
+		It will also take live data from some source, and build it into the model, while adding it to the dataset.
+Display module (DisplayPrediction.py, DescentPredictor.py)
+		This will take the predicted landing points and build an overall map of probable landing locations.
